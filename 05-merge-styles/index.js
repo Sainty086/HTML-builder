@@ -10,7 +10,7 @@ fs.readdir(sourceFolder, { withFileTypes: true }, (err, files) => {
   if (err) console.log(err);
   else {
     files.forEach((file) => {
-      const filePath = path.join(file.parentPath, file.name);
+      const filePath = path.join(sourceFolder, file.name);
       if (file.isFile() && path.extname(file.name) === '.css') {
         const reader = fs.createReadStream(filePath);
         reader.on('data', function (chunk) {
